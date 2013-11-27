@@ -53,6 +53,7 @@ header * {
 .wrapper section a:visited {
 	color: #90ad2f;
 	display: block;
+	margin-top: 25px;
 	text-decoration: none;
 }
 
