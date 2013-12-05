@@ -1,5 +1,22 @@
 //create a unique namespace
 var chicohernando = {};
+/**
+ * Takes a jQuery object (element), gets it's text, and if the text
+ * matches the format of an image url exactly it will replace the
+ * $element text with an img tag.
+ *
+ */
+chicohernando.replaceImageUrlsWithImageTag = function(element) {
+	var text = jQuery(element).text().replace("&nbsp;", "").trim();
+	var imageRegex = /^https?:\/\/[a-z0-9\-\+&@#\/%\?=~_|!:,\.;]+?[gif|png|jpg|jpeg]$/gim;
+	if (imageRegex.test(text)) {
+		jQuery(element).html("<img src=\"" + text + "\" style=\"width: 100%;\" />");
+		chicohernando.trackEvent("auto", "image");
+	}
+	
+	//add a class to represent that we've already parsed this element
+	jQuery(element).addClass("chicohernando-parsed");
+};
 
 /**
  * Adds custom namespaced GA key to the page
@@ -53,3 +70,16 @@ API.bind(API.DJ_ADVANCE, function(obj) {
 chicohernando.setupGoogleAnalytics();
 chicohernando.trackPageView();
 chicohernando.woot();
+
+//replace any text that is in chat on initial plugin load
+jQuery('#chat-messages .message .text').not(".chicohernando-parsed").each(function(key, value) {
+	chicohernando.replaceImageUrlsWithImageTag(value);
+});
+
+//on each new chat parse any nonparsed object
+API.on(API.CHAT, function() {
+	//skip texts that we have already parsed
+	jQuery('#chat-messages .message .text').not(".chicohernando-parsed").each(function(key, value) {
+		chicohernando.replaceImageUrlsWithImageTag(value);
+	});
+});
