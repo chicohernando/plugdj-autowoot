@@ -7,8 +7,9 @@ var chicohernando = {};
  *
  */
 chicohernando.showVideoClickHandler = function(e) {
-	jQuery(this).parents('chicohernando-toggle-show-video').toggleClass('selected');
-	if (jQuery(this).parents('chicohernando-toggle-show-video').hasClass('selected')) {
+	console.log(this);
+	jQuery(this).parents('.chicohernando-toggle-show-video').toggleClass('selected');
+	if (jQuery(this).parents('.chicohernando-toggle-show-video').hasClass('selected')) {
 		jQuery('#playback').css('opacity', '1');
 	} else {
 		jQuery('#playback').css('opacity', '0');
@@ -102,6 +103,6 @@ API.on(API.CHAT, function() {
 //check for settings section
 if (jQuery('.chicohernando-settings').length == 0) {
 	jQuery('#settings .container').append('<div class="chicohernando-settings section">Additional Settings</div>');
-	jQuery('.chicohernando-settings').after('<div class="chicohernando-toggle-show-video item selected"><i class="icon icon-check-blue"></i><span>Show Video</span></div>');
-	jQuery('.chicohernando-toggle-show-video').on('click', chicohernando.showVideoClickHandler);
+	// jQuery('.chicohernando-settings').after('<div class="chicohernando-toggle-show-video item selected"><i class="icon icon-check-blue"></i><span>Show Video</span></div>');
+	// jQuery('.chicohernando-toggle-show-video').on('click', chicohernando.showVideoClickHandler);
 }
