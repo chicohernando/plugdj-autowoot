@@ -1,5 +1,20 @@
 //create a unique namespace
 var chicohernando = {};
+
+/**
+ * Handle what happens when the user clicks the Show Video button
+ * in the Settings section.
+ *
+ */
+chicohernando.showVideoClickHandler = function(e) {
+	jQuery(this).parents('chicohernando-toggle-show-video').toggleClass('selected');
+	if (jQuery(this).parents('chicohernando-toggle-show-video').hasClass('selected')) {
+		jQuery('#playback').css('opacity', '1');
+	} else {
+		jQuery('#playback').css('opacity', '0');
+	}
+};
+
 /**
  * Takes a jQuery object (element), gets it's text, and if the text
  * matches the format of an image url exactly it will replace the
@@ -83,3 +98,10 @@ API.on(API.CHAT, function() {
 		chicohernando.replaceImageUrlsWithImageTag(value);
 	});
 });
+
+//check for settings section
+if (jQuery('.chicohernando-settings').length == 0) {
+	jQuery('#settings .container').append('<div class="chicohernando-settings section">Additional Settings</div>');
+	jQuery('.chicohernando-settings').after('<div class="chicohernando-toggle-show-video item selected"><i class="icon icon-check-blue"></i><span>Show Video</span></div>');
+	jQuery('.chicohernando-toggle-show-video').on('click', chicohernando.showVideoClickHandler);
+}
