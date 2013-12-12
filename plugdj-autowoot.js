@@ -100,8 +100,11 @@ API.on(API.CHAT, function() {
 });
 
 //check for settings section
-if (jQuery('.chicohernando-settings').length == 0) {
-	jQuery('#settings .container').append('<div class="chicohernando-settings section">Additional Settings</div>');
-	jQuery('.chicohernando-settings').after('<div class="chicohernando-toggle-show-video item selected"><i class="icon icon-check-blue"></i><span>Show Video</span></div>');
-	jQuery('.chicohernando-toggle-show-video').on('click', chicohernando.showVideoClickHandler);
-}
+// if (jQuery('.chicohernando-settings').length == 0) {
+// 	jQuery('#settings .container').append('<div class="chicohernando-settings section">Additional Settings</div>');
+// 	jQuery('.chicohernando-settings').after('<div class="chicohernando-toggle-show-video item selected"><i class="icon icon-check-blue"></i><span>Show Video</span></div>');
+// 	jQuery('body').on('click', '.chicohernando-toggle-show-video',  chicohernando.showVideoClickHandler);
+// }
+
+//Add custom react scripts
+jQuery.getScript('https://raw.github.com/RipsHouse/Rip/master/plug.dj.commands.js');
