@@ -82,7 +82,7 @@ chicohernando.woot = function() {
  * Listen for a new DJ and then be prepared
  * to woot all over them.
  */
-API.bind(API.DJ_ADVANCE, function(obj) {
+API.bind(API.ADVANCE, function(obj) {
   setTimeout(function() {
     chicohernando.woot();
   }, chicohernando.getRandomTimeout());
