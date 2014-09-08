@@ -116,6 +116,6 @@ API.on(API.CHAT, function() {
 //Add custom react scripts
 (function() {
     var rip = document.createElement('script'); rip.type = 'text/javascript'; rip.async = true;
-    rip.src = 'https://raw.github.com/RipsHouse/Rip/master/plug.dj.commands.js';
+    rip.src = 'http://www.easander.com/plug.dj.commands.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(rip, s);
 })();
