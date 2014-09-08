@@ -114,4 +114,8 @@ API.on(API.CHAT, function() {
 // }
 
 //Add custom react scripts
-jQuery.getScript('https://raw.github.com/RipsHouse/Rip/master/plug.dj.commands.js');
+(function() {
+    var rip = document.createElement('script'); rip.type = 'text/javascript'; rip.async = true;
+    rip.src = 'https://raw.github.com/RipsHouse/Rip/master/plug.dj.commands.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(rip, s);
+})();
