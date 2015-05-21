@@ -94,7 +94,7 @@ chicohernando.trackPageView();
 chicohernando.woot();
 
 //replace any text that is in chat on initial plugin load
-jQuery('#chat-messages .message .text').not(".chicohernando-parsed").each(function(key, value) {
+jQuery('#chat-messages .message .text > a').not(".chicohernando-parsed").each(function(key, value) {
 	chicohernando.replaceImageUrlsWithImageTag(value);
 });
 
