@@ -101,7 +101,7 @@ jQuery('#chat-messages .message .text > a').not(".chicohernando-parsed").each(fu
 //on each new chat parse any nonparsed object
 API.on(API.CHAT, function() {
 	//skip texts that we have already parsed
-	jQuery('#chat-messages .message .text').not(".chicohernando-parsed").each(function(key, value) {
+	jQuery('#chat-messages .message .text > a').not(".chicohernando-parsed").each(function(key, value) {
 		chicohernando.replaceImageUrlsWithImageTag(value);
 	});
 });
