@@ -74,7 +74,7 @@ chicohernando.getRandomTimeout = function() {
  * a click event.
  */
 chicohernando.woot = function() {
-  jQuery('#woot').trigger('click');
+  jQuery('.room-controls .btn-like').trigger('click');
   chicohernando.trackEvent('auto', 'woot');
 };
 
