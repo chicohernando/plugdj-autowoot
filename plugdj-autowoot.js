@@ -74,7 +74,7 @@ chicohernando.getRandomTimeout = function() {
  * a click event.
  */
 chicohernando.woot = function() {
-  jQuery('#woot').trigger('click');
+  jQuery('.room-controls .btn-like').trigger('click');
   chicohernando.trackEvent('auto', 'woot');
 };
 
@@ -114,4 +114,4 @@ API.on(API.CHAT, function() {
 // }
 
 //Add custom react scripts
-jQuery.getScript('https://rawgit.com/RipsHouse/Rip/master/plug.dj.commands.js');
+// jQuery.getScript('https://rawgit.com/RipsHouse/Rip/master/plug.dj.commands.js');
